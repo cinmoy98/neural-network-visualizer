@@ -23,6 +23,7 @@ def get_prediction():
     image_arr = np.reshape(image, (1, 784))
     return feature_model.predict(image_arr), image
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -33,5 +34,10 @@ def index():
             'image': image.tolist()
         })
     return 'Welcome to the model server!'
+
+@app.route('/cinmoy')
+def cinmoy():
+    return 'Hello this is cinmoy'
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()
